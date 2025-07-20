@@ -8,11 +8,15 @@ CORS(app)
 scaler = joblib.load('scaler_clientes.pkl')
 kmeans = joblib.load('kmeans_clientes.pkl')
 etiquetas = {
-    0: "Cliente frecuente",
+    3: "Cliente frecuente",
     1: "Cliente regular",
     2: "Cliente ocasional",
-    3: "Cliente esporádico"
+    0: "Cliente esporádico"
 }
+
+@app.route('/')
+def home():
+    return 'Modelo activo'
 
 @app.route('/clasificar-lote', methods=['POST'])
 def clasificar_lote():
